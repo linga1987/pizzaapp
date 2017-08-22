@@ -4,6 +4,7 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath 'com.google.appengine:gradle-appengine-plugin:1.9.54'
+        appengineSdk 'com.google.appengine:appengine-java-sdk:1.9.54'
     }
 }
 

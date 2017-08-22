@@ -103,7 +103,7 @@ class PizzaOrderIT extends Specification {
         def itemId1 = item1.get("id")
         def itemPrice1 = item1.get("price")
         def orderedItem = new OrderedItem(itemId1, 2, restaurantEntity.body.id, itemPrice1)
-        def cartUrl = "https://localhost:"+serverPort+"/v1/pizza/cart/item?access_token="+result.body.access_token
+        def cartUrl = "https://localhost:"+serverPort+"/v1/pizza/carts/item?access_token="+result.body.access_token
         HttpEntity<OrderedItem> httpEntity = new HttpEntity<>(orderedItem)
         def cartEntity = restTemplate.exchange(cartUrl, HttpMethod.PUT, httpEntity, OrderedItemWrapper.class)
 
@@ -133,7 +133,7 @@ class PizzaOrderIT extends Specification {
         cartEntity.body.totalPrice == item1.price * 2
 
         when: //get cart items
-        def getCartUrl = "https://localhost:"+serverPort+"/v1/pizza/carts?access_token="+result.body.access_token
+        def getCartUrl = "https://localhost:"+serverPort+"/v1/pizza/carts/?access_token="+result.body.access_token
         def getCartEntity = restTemplate.getForEntity(getCartUrl, OrderedItemWrapper.class)
 
         then:

@@ -4,7 +4,6 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath 'com.google.appengine:gradle-appengine-plugin:1.9.54'
-        appengineSdk 'com.google.appengine:appengine-java-sdk:1.9.54'
     }
 }
 
@@ -47,4 +46,11 @@ dependencies {
     testCompile group: 'org.spockframework', name: 'spock-spring', version: '1.1-groovy-2.4'
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    appengineSdk "com.google.appengine:appengine-java-sdk:1.9.6"
+    compile "com.google.appengine:appengine-api-1.0-sdk:1.9.6"
+}
+
+appengine {
+    downloadSdk = true
 }

@@ -3,13 +3,11 @@ buildscript {
     repositories { mavenCentral() }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath 'com.google.appengine:gradle-appengine-plugin:1.9.54'
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'appengine'
 
 jar {
     baseName = 'pizzaapp'
@@ -46,13 +44,6 @@ dependencies {
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
-    appengineSdk "com.google.appengine:appengine-java-sdk:1.9.54"
-    compile "com.google.appengine:appengine-api-1.0-sdk:1.9.54"
-}
-
-appengine {
-    httpPort = 8080
-    downloadSdk = true
 }
 
 springBoot {

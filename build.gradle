@@ -54,3 +54,7 @@ dependencies {
 appengine {
     downloadSdk = true
 }
+
+springBoot {
+    executable = true
+}
